@@ -1,6 +1,6 @@
 ﻿using CLI_Multi_Tool.Interfaces;
 
-namespace CLI_Multi_Tool;
+namespace CLI_Multi_Tool.Repository;
 
 public class SearchRepo: ISearchRepo
 {
