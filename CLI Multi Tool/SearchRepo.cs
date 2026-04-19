@@ -4,13 +4,13 @@ namespace CLI_Multi_Tool;
 
 public class SearchRepo: ISearchRepo
 {
-    public string Search(string startFolder)
+    public string Search(string targetFile, string searchPattern)
     {
-        DirectoryInfo dir = new DirectoryInfo("C:\\Users\\CompuTechPTY\\Downloads");
+        DirectoryInfo dir = new DirectoryInfo(searchPattern);
         var fileList = dir.GetFiles("*.*", SearchOption.AllDirectories);
         
         var fileQuery = from file in fileList
-            where file.Name.Contains(startFolder)
+            where file.Name.Contains(targetFile)
             orderby file.Name
             select file;
         

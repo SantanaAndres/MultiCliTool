@@ -8,12 +8,13 @@ public class SearchService(ISearchRepo repo): ISearchService
     {
         try
         {
-            var userInput = Console.ReadLine();
+            var targetFile = Console.ReadLine();
+            var searchPattern = Console.ReadLine();
             
-            if (!Directory.Exists(userInput))
-                return repo.Search(userInput);
+            if (!Directory.Exists(targetFile))
+                return repo.Search(targetFile, searchPattern);
             else 
-                return repo.Search(userInput);
+                return repo.Search(targetFile, searchPattern);
         }
         catch (Exception e)
         {
