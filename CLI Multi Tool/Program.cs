@@ -1,12 +1,14 @@
 ﻿using CLI_Multi_Tool;
+using CLI_Multi_Tool.Interfaces;
 using Spectre.Console;
 
-// Console.WriteLine("En que directorio desea buscar el archivo");
 
-// var userInput = Console.ReadLine();
+AnsiConsole.MarkupLine("[rgb(0,255,0)]Welcome to CLI Multi Tool!!!!!!!!!!!!!![/]");
 
-Repo repo = new Repo();
+
+ISearchRepo searchRepo = new SearchRepo();
+ISearchService searchService = new SearchService(searchRepo);
 
 AnsiConsole.MarkupLine("[green]✓ Build completed successfully[/]");
 
-Console.WriteLine(repo.Search());
+Console.WriteLine(searchService.Search());
