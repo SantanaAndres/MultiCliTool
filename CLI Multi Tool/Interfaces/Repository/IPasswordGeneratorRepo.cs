@@ -2,5 +2,5 @@
 
 public interface IPasswordGeneratorRepo
 {
-    public string GeneratePassword();
+    public string GeneratePassword(int length);
 }

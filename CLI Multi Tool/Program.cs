@@ -11,10 +11,10 @@ ISearchRepo searchRepo = new SearchRepo();
 IPasswordGeneratorRepo passwordGeneratorRepo = new PasswordGeneratorRepo();
 
 ISearchService searchService = new SearchService(searchRepo);
-
+IPasswordServices passwordServices = new PasswordServices(passwordGeneratorRepo);
+IManager manager  = new Manager(passwordServices, searchService);
 
 
 AnsiConsole.MarkupLine("[green]✓ Build completed successfully[/]");
 
-// Console.WriteLine(searchService.Search());
-Console.WriteLine(passwordGeneratorRepo.GeneratePassword());
+manager.serviceManager();
