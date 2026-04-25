@@ -6,7 +6,6 @@ namespace CLI_Multi_Tool.Repository;
 
 public class PasswordGeneratorRepo: IPasswordGeneratorRepo
 {
-        
     public string GeneratePassword(int length)
     {
         const string Alphabet = "ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz123456789";

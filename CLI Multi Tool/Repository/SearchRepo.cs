@@ -4,21 +4,30 @@ namespace CLI_Multi_Tool.Repository;
 
 public class SearchRepo: ISearchRepo
 {
-    public string Search(string targetFile, string searchPattern)
+    public string Search(string lookingFor, string searchPattern)
     {
-        DirectoryInfo dir = new DirectoryInfo(searchPattern);
-        var fileList = dir.GetFiles("*.*", SearchOption.AllDirectories);
-        
-        var fileQuery = from file in fileList
-            where file.Name.Contains(targetFile)
-            orderby file.Name
-            select file;
-        
-        var newestFile = (from file in fileQuery
-                orderby file.CreationTime
-                select new { file.FullName, file.CreationTime })
-            .Last();
-        
-        return $"\r\nThe newest file is {newestFile.FullName}. Creation time: {newestFile.CreationTime}";
+        var targetFile = "";
+        try
+        {
+            string[] files = Directory.GetFiles(searchPattern, lookingFor, SearchOption.TopDirectoryOnly);
+            foreach (var file in files)
+            {
+                Console.WriteLine(file);
+                targetFile = file;
+            }
+
+            string[] dirs = Directory.GetDirectories(searchPattern);
+            foreach (var dir in dirs)
+            {
+                if(dir != null)
+                    Search(dir, lookingFor);
+            }
+            return targetFile;
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Access denied: {0}", searchPattern);
+            return "";
+        }
     }
 }
