@@ -18,3 +18,5 @@ IManager manager  = new Manager(passwordServices, searchService);
 AnsiConsole.MarkupLine("[green]✓ Build completed successfully[/]");
 
 manager.serviceManager();
+
+// searchRepo.Search("wp14805292-chill-guy-wallpapers.webp", @"c:\");

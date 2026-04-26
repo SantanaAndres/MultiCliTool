@@ -2,5 +2,5 @@
 
 public interface ISearchRepo
 {
-    public string Search(string targetFile, string searchPattern);
+    public void Search(string targetFile, string searchPattern);
 }

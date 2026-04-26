@@ -11,7 +11,7 @@ public class Manager(IPasswordServices passwordServices, ISearchService searchSe
 
         if (decision == '1')
         {
-            Console.WriteLine(searchService.Search());
+            searchService.Search();
         }
         else
         {
