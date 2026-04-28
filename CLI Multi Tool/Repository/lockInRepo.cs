@@ -2,10 +2,11 @@
 
 namespace CLI_Multi_Tool.Repository;
 
-public class LockInRepo(Timer timer)
+public class LockInRepo
 {
-    public void SaveTask(Stopwatch stopwatch)
+    public void SaveTask()
     {
+        Stopwatch stopwatch  = Stopwatch.StartNew();
         stopwatch.Start();
         
         Console.WriteLine("Temporizador iniciado. Presiona cualquier tecla para detener...");
