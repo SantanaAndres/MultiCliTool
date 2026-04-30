@@ -1,8 +1,7 @@
 ﻿using System.Security.Cryptography;
-using CLI_Multi_Tool.Interfaces;
-using Microsoft.VisualBasic;
+using Core.Interfaces.Repository;
 
-namespace CLI_Multi_Tool.Repository;
+namespace Infrastructure.Repository;
 
 public class PasswordGeneratorRepo: IPasswordGeneratorRepo
 {

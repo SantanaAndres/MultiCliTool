@@ -1,4 +1,4 @@
-﻿namespace CLI_Multi_Tool.Interfaces;
+﻿namespace Core.Interfaces.Repository;
 
 public interface ISearchRepo
 {

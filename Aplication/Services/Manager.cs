@@ -1,6 +1,6 @@
-﻿using CLI_Multi_Tool.Interfaces;
+﻿using Core.Interfaces.Services;
 
-namespace CLI_Multi_Tool;
+namespace Aplication.Services;
 
 public class Manager(IPasswordServices passwordServices, ISearchService searchService): IManager
 {

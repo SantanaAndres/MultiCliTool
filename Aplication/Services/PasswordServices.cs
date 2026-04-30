@@ -1,7 +1,8 @@
-﻿using CLI_Multi_Tool.Interfaces;
+﻿using Core.Interfaces.Repository;
+using Core.Interfaces.Services;
 using Spectre.Console;
 
-namespace CLI_Multi_Tool;
+namespace Aplication.Services;
 
 public class PasswordServices(IPasswordGeneratorRepo repo): IPasswordServices
 {

@@ -1,4 +1,4 @@
-﻿namespace CLI_Multi_Tool.Interfaces;
+﻿namespace Core.Interfaces.Services;
 
 public interface IManager
 {
