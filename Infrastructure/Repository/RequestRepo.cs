@@ -17,7 +17,7 @@ public class RequestRepo(IConfiguration configuration)
             
             var url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
             
-            var parameters = "?limit=10"; 
+            var parameters = "?limit=1"; 
             
             string responseBody = await client.GetStringAsync(url + parameters);
             Console.WriteLine(responseBody);
