@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F7A5B7F1-A182-4FB7-AB34-520C30746CA6}"
+	ProjectSection(SolutionItems) = preProject
+		Presentation\.gitignore = Presentation\.gitignore
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{EFC045A4-E204-4964-9B9D-3AA5AEDB6935}"
 EndProject
