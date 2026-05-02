@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Repository;
@@ -8,7 +9,7 @@ public class RequestRepo(IConfiguration configuration)
 {
     static readonly HttpClient client = new HttpClient();
 
-    public async Task Prueba()
+    public async Task CheckBTCPrice()
     {
         try
         {
@@ -19,8 +20,9 @@ public class RequestRepo(IConfiguration configuration)
             
             var parameters = "?limit=1"; 
             
-            string responseBody = await client.GetStringAsync(url + parameters);
-            Console.WriteLine(responseBody);
+            var responseBody = JsonDocument.Parse(await client.GetStringAsync(url + parameters));
+            var price = responseBody.RootElement.GetProperty("data")[0].GetProperty("quote").GetProperty("USD").GetProperty("price").GetRawText();
+            Console.WriteLine($"{decimal.Round(decimal.Parse(price), 2)} USD");
         }
         catch (HttpRequestException e)
         {
