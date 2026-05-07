@@ -1,9 +1,10 @@
 ﻿using System.Text.Json;
+using Core.Interfaces.Repository;
 using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Repository;
 
-public class RequestRepo(IConfiguration configuration)
+public class RequestRepo(IConfiguration configuration): IRequestRepo
 {
     static readonly HttpClient client = new HttpClient();
 
