@@ -1,4 +1,5 @@
 ﻿using Domain.Interfaces.Services;
+using Spectre.Console;
 
 namespace Aplication.Services;
 
@@ -10,21 +11,38 @@ public class Manager(
 {
     public async Task serviceManager()
     {
-        Console.WriteLine("Type 1 if you want to search a file something in the machine");
-        var decision = Console.Read();
+        while (true)
+        {
+            var opcion = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("[yellow]¿Qué quieres hacer?[/]")
+                    .PageSize(10)
+                    .AddChoices(new[] {
+                        "🔍 Buscar archivo", 
+                        "🔐 Generar contraseñas", 
+                        "₿ Precio BTC", 
+                        "🚪 Salir"
+                    }));
 
-        if (decision == '1')
-        {
-            searchService.Search();
-        }
-        else if(decision == '2')
-        {
-             passwordServices.GeneratePassword();
-             
-        }
-        else
-        {
-            await requestServices.CheckBTCPrice();
+            switch (opcion)
+            {
+                case "🔍 Buscar archivo":
+                    searchService.Search();
+                    break;
+                case "🔐 Generar contraseñas":
+                    passwordServices.GeneratePassword();
+                    break;
+                case "₿ Precio BTC":
+                    await requestServices.CheckBTCPrice();
+                    break;
+                case "🚪 Salir":
+                    AnsiConsole.Markup("[green]¡Hasta luego![/]");
+                    return;
+            }
+        
+            AnsiConsole.Markup("\n[dim]Presiona cualquier tecla para continuar...[/]");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
