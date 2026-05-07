@@ -5,10 +5,10 @@ namespace Aplication.Services;
 public class Manager(
     IPasswordServices passwordServices, 
     ISearchService searchService,
-    
+    IRequestServices requestServices
     ): IManager
 {
-    public void serviceManager()
+    public async Task serviceManager()
     {
         Console.WriteLine("Type 1 if you want to search a file something in the machine");
         var decision = Console.Read();
@@ -24,7 +24,7 @@ public class Manager(
         }
         else
         {
-            
+            await requestServices.CheckBTCPrice();
         }
     }
 }
