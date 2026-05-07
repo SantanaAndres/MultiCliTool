@@ -9,10 +9,6 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.Development.json", optional: false)
     .Build();
 
-AnsiConsole.MarkupLine("[rgb(0,255,0)]Welcome to CLI Multi Tool!!!!!!!!!!!!!![/]");
-
-
-
 ISearchRepo searchRepo = new SearchRepo();
 IPasswordGeneratorRepo passwordGeneratorRepo = new PasswordGeneratorRepo();
 IRequestRepo btcRepo = new RequestRepo(configuration);
