@@ -2,5 +2,5 @@
 
 public interface IManager
 {
-    public void serviceManager();
+    public Task serviceManager();
 }
