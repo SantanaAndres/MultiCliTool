@@ -1,4 +1,4 @@
-﻿using Core.Interfaces.Repository;
+﻿using Domain.Interfaces.Repository;
 
 namespace Infrastructure.Repository;
 

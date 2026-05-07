@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using Core.Interfaces.Repository;
+using Domain.Interfaces.Repository;
 using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Repository;
