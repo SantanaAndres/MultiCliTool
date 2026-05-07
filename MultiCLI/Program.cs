@@ -15,10 +15,11 @@ AnsiConsole.MarkupLine("[rgb(0,255,0)]Welcome to CLI Multi Tool!!!!!!!!!!!!!![/]
 
 ISearchRepo searchRepo = new SearchRepo();
 IPasswordGeneratorRepo passwordGeneratorRepo = new PasswordGeneratorRepo();
+IRequestRepo btcRepo = new RequestRepo(configuration);
 
 ISearchService searchService = new SearchService(searchRepo);
 IPasswordServices passwordServices = new PasswordServices(passwordGeneratorRepo);
-IManager manager  = new Manager(passwordServices, searchService);
+IRequestServices btcServices = new RequestService(btcRepo);
+IManager manager  = new Manager(passwordServices, searchService, btcServices);
 
-var repo = new RequestRepo(configuration);
-await repo.CheckBTCPrice();
+await manager.serviceManager();
