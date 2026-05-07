@@ -2,7 +2,11 @@
 
 namespace Aplication.Services;
 
-public class Manager(IPasswordServices passwordServices, ISearchService searchService): IManager
+public class Manager(
+    IPasswordServices passwordServices, 
+    ISearchService searchService,
+    
+    ): IManager
 {
     public void serviceManager()
     {
@@ -13,9 +17,14 @@ public class Manager(IPasswordServices passwordServices, ISearchService searchSe
         {
             searchService.Search();
         }
-        else
+        else if(decision == '2')
         {
              passwordServices.GeneratePassword();
+             
+        }
+        else
+        {
+            
         }
     }
 }
