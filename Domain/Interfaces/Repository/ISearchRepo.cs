@@ -1,4 +1,4 @@
-﻿namespace Core.Interfaces.Repository;
+﻿namespace Domain.Interfaces.Repository;
 
 public interface ISearchRepo
 {
